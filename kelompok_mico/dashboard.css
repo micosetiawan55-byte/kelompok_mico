@@ -1,0 +1,345 @@
+/* Reset dan Variabel CSS */
+:root {
+  --primary: #4361ee;
+  --secondary: #3a0ca3;
+  --accent: #4cc9f0;
+  --dark: #1e1e2e;
+  --light: #f8f9fa;
+  --success: #4ade80;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --sidebar-width: 280px;
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --glass: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow-x: hidden;
+}
+
+/* Sidebar Modern */
+.sidebar {
+  width: var(--sidebar-width);
+  background: linear-gradient(180deg, var(--dark) 0%, #2d2d42 100%);
+  color: var(--light);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  box-shadow: 8px 0 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, var(--glass) 100%);
+  z-index: -1;
+}
+
+.sidebar .logo {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  text-align: center;
+  background: linear-gradient(45deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.sidebar .logo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 3px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-menu a {
+  color: var(--light);
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-menu a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.nav-menu a:hover::before {
+  left: 100%;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  transform: translateX(8px);
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+.nav-menu a:active {
+  transform: translateX(8px) scale(0.98);
+}
+
+/* Main Content */
+main.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius);
+  margin: 20px;
+  margin-left: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow);
+  overflow-y: auto;
+  max-height: calc(100vh - 40px);
+}
+
+main.main-content h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  color: var(--light);
+  position: relative;
+  font-weight: 700;
+}
+
+main.main-content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  border-radius: 2px;
+}
+
+/* Cards Container */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Card Style Modern */
+.card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  padding: 40px 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--light);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.card:active {
+  transform: translateY(-5px) scale(1.01);
+}
+
+/* Efek khusus untuk setiap card */
+.card:nth-child(1):hover {
+  box-shadow: 0 15px 30px rgba(67, 97, 238, 0.3);
+}
+
+.card:nth-child(2):hover {
+  box-shadow: 0 15px 30px rgba(76, 201, 240, 0.3);
+}
+
+.card:nth-child(3):hover {
+  box-shadow: 0 15px 30px rgba(58, 12, 163, 0.3);
+}
+
+/* Animasi untuk card saat dimuat */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card {
+  animation: cardEntrance 0.6s ease-out;
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 240px;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    border-radius: 0;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    padding: 20px;
+  }
+  
+  .nav-menu {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .nav-menu a {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  main.main-content {
+    margin: 10px;
+    padding: 25px;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  main.main-content {
+    padding: 20px 15px;
+  }
+  
+  main.main-content h1 {
+    font-size: 28px;
+  }
+  
+  .card {
+    padding: 30px 20px;
+    font-size: 20px;
+  }
+  
+  .sidebar .logo {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Scrollbar Custom */
+main.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+main.main-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+main.main-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary), var(--secondary));
+  border-radius: 10px;
+}
+
+main.main-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--accent), var(--primary));
+}

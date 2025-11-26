@@ -1,0 +1,307 @@
+/* style-edit-kelas.css */
+/* Stylesheet untuk halaman Edit Data Kelas */
+
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container Styles */
+.container {
+    max-width: 600px;
+    width: 90%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography */
+h2 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+label {
+    font-weight: 600;
+    color: #2d3436;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background: #fff;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.3);
+    transform: translateY(-2px);
+}
+
+input[type="hidden"] {
+    display: none;
+}
+
+/* Button Styles */
+.btn-group {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button,
+input[type="submit"] {
+    padding: 12px 25px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    min-width: 160px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background: #6c5ce7;
+}
+
+.btn-primary:hover {
+    background: #341f97;
+}
+
+.btn-reset {
+    background: #fd9644;
+}
+
+.btn-reset:hover {
+    background: #e67e22;
+}
+
+/* Link Styles */
+.top-link {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #0984e3;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+    background: rgba(9, 132, 227, 0.1);
+}
+
+.top-link:hover {
+    text-decoration: underline;
+    background: rgba(9, 132, 227, 0.2);
+    transform: translateX(-5px);
+}
+
+/* Error Message Styles */
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    background: rgba(231, 76, 60, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #e74c3c;
+}
+
+/* Success Message Styles */
+.success-message {
+    color: #27ae60;
+    text-align: center;
+    background: rgba(39, 174, 96, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #27ae60;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 25px;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button,
+    input[type="submit"] {
+        width: 100%;
+        max-width: 250px;
+        margin: 5px 0;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 15px auto;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    button,
+    input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        min-width: 140px;
+    }
+    
+    .top-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading State */
+.btn-loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Focus States for Accessibility */
+input[type="text"]:focus-visible,
+input[type="number"]:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible,
+.top-link:focus-visible {
+    outline: 2px solid #6c5ce7;
+    outline-offset: 2px;
+}
+
+/* Selection Styling */
+::selection {
+    background: rgba(108, 92, 231, 0.2);
+    color: inherit;
+}
+
+::-moz-selection {
+    background: rgba(108, 92, 231, 0.2);
+    color: inherit;
+}
+
+/* Placeholder Styling */
+::placeholder {
+    color: #aaa;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #aaa;
+}
+
+::-ms-input-placeholder {
+    color: #aaa;
+}
+
+/* Form Hint Styling */
+.form-hint {
+    color: #666;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+}
